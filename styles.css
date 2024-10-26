@@ -1,0 +1,28 @@
+/* Default Light Theme */
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.navbar-light {
+    background-color: #4d4d4d;
+}
+
+.card {
+    background-color: #ffffff;
+}
+
+/* Night Mode Styles */
+body.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+.navbar-light.dark-mode {
+    background-color: #343a40;
+}
+
+.card.dark-mode {
+    background-color: #343a40;
+    color: #f8f9fa;
+}

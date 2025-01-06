@@ -40,12 +40,6 @@
                 transform: translateY(0);
             }
         }
-
-        /* Styling for the map */
-        #map {
-            height: 400px;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
@@ -64,11 +58,11 @@
                             Menu
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#home">Home</a></li>
-                            <li><a class="dropdown-item" href="#about">About</a></li>
-                            <li><a class="dropdown-item" href="#skills">Skills</a></li>
-                            <li><a class="dropdown-item" href="#projects">Projects</a></li>
-                            <li><a class="dropdown-item" href="#contact">Contact</a></li>
+                            <li><a class="dropdown-item" href="#home" onclick="filterGallery('home')">Home</a></li>
+                            <li><a class="dropdown-item" href="#about" onclick="filterGallery('about')">About</a></li>
+                            <li><a class="dropdown-item" href="#skills" onclick="filterGallery('skills')">Skills</a></li>
+                            <li><a class="dropdown-item" href="#projects" onclick="filterGallery('projects')">Projects</a></li>
+                            <li><a class="dropdown-item" href="#contact" onclick="filterGallery('contact')">Contact</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -160,18 +154,8 @@
         <!-- Google Maps Embed -->
         <div class="mt-5">
             <h4>Our Office Location</h4>
-            <div id="map"></div>
+            <div id="map" style="height: 400px; width: 100%;"></div>
         </div>
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.368631496305!2d106.68666704542743!3d-6.346287877303911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e26dc3cd%3A0xccd6344b8021119d!2sUniversitas%20Pamulang%20Kampus%202%20(UNPAM%20Viktor)!5e0!3m2!1sid!2sid!4v1736147400819!5m2!1sid!2sid
-            &q=Jakarta+Selatan,+DKI+Jakarta" 
-          width="600" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
     </section>
 
     <!-- Bootstrap JS, jQuery, and Google Maps API -->
@@ -180,6 +164,18 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
     
     <script>
+        // Function to filter gallery based on category
+        function filterGallery(category) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === category || category === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
         // Initialize Google Maps
         function initMap() {
             var pamulang = { lat: -6.347767, lng: 106.741056 };

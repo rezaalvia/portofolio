@@ -40,12 +40,6 @@
                 transform: translateY(0);
             }
         }
-
-        /* Styling for the map */
-        #map {
-            height: 400px;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
@@ -64,11 +58,11 @@
                             Menu
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#home">Home</a></li>
-                            <li><a class="dropdown-item" href="#about">About</a></li>
-                            <li><a class="dropdown-item" href="#skills">Skills</a></li>
-                            <li><a class="dropdown-item" href="#projects">Projects</a></li>
-                            <li><a class="dropdown-item" href="#contact">Contact</a></li>
+                            <li><a class="dropdown-item" href="#home" onclick="filterGallery('home')">Home</a></li>
+                            <li><a class="dropdown-item" href="#about" onclick="filterGallery('about')">About</a></li>
+                            <li><a class="dropdown-item" href="#skills" onclick="filterGallery('skills')">Skills</a></li>
+                            <li><a class="dropdown-item" href="#projects" onclick="filterGallery('projects')">Projects</a></li>
+                            <li><a class="dropdown-item" href="#contact" onclick="filterGallery('contact')">Contact</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -160,7 +154,7 @@
         <!-- Google Maps Embed -->
         <div class="mt-5">
             <h4>Our Office Location</h4>
-            <div id="map"></div>
+            <div id="map" style="height: 400px; width: 100%;"></div>
         </div>
     </section>
 
@@ -170,6 +164,18 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
     
     <script>
+        // Function to filter gallery based on category
+        function filterGallery(category) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === category || category === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
         // Initialize Google Maps
         function initMap() {
             var pamulang = { lat: -6.347767, lng: 106.741056 };

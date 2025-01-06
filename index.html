@@ -153,6 +153,7 @@
 
         <!-- Google Maps Embed -->
         <div class="mt-5">
+            <h4>lokasi sayaa!</h4>
             <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.368631496305!2d106.68666704542743!3d-6.346287877303911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e26dc3cd%3A0xccd6344b8021119d!2sUniversitas%20Pamulang%20Kampus%202%20(UNPAM%20Viktor)!5e0!3m2!1sid!2sid!4v1736147400819!5m2!1sid!2sid
             &q=Jakarta+Selatan,+DKI+Jakarta" 
@@ -162,11 +163,26 @@
           allowfullscreen="" 
           loading="lazy" 
           referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <h4>Our Office Location</h4>
+             </iframe>
             <div id="map" style="height: 400px; width: 100%;"></div>
         </div>
     </section>
+
+        <script>
+        // Function to filter gallery based on category
+        function filterGallery(category) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === category || category === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        
+        </script>
 
     <!-- Bootstrap JS, jQuery, and Google Maps API -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
